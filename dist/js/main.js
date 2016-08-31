@@ -19734,7 +19734,8 @@ module.exports = validateDOMNesting;
 module.exports = require('./lib/React');
 
 },{"./lib/React":58}],164:[function(require,module,exports){
-
+var AppDispatcher = require('../dispatcher/AppDispatcher');
+var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
     searchMovies: function(movie) {
@@ -19753,7 +19754,7 @@ var AppActions = {
 
 module.exports = AppActions;
 
-},{}],165:[function(require,module,exports){
+},{"../constants/AppConstants":169,"../dispatcher/AppDispatcher":170}],165:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
@@ -19887,7 +19888,7 @@ module.exports = {
 var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 
-var AppDispatcher = assing(new Dispatcher(), {
+var AppDispatcher = assign(new Dispatcher(), {
     handleViewAction: function(action){
         var payload = {
             source: 'VIEW_ACTION',
